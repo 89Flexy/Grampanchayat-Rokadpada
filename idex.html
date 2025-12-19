@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grampanchayat Rokadpada</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;background:#f8f7f2}
+
+/* ================= TOP BAR ================= */
+.top-bar{
+  position:fixed;
+  top:0;left:0;
+  width:100%;
+  height:55px;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 18px;
+  box-shadow:0 2px 8px rgba(0,0,0,.1);
+  z-index:1000;
+}
+
+/* MENU ICON */
+.menu-icon{
+  width:26px;height:20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  cursor:pointer;
+}
+.menu-icon div{
+  height:3px;
+  background:#000;
+  border-radius:2px;
+  transition:.3s;
+}
+.menu-icon.active div:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-icon.active div:nth-child(2){opacity:0}
+.menu-icon.active div:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* CENTER TITLE FIXED */
+.top-bar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 55px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* icons left/right */
+  padding: 0 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  z-index: 1000;
+}
+
+/* Top title container */
+.top-title {
+  flex: 1;                     /* space le left-right icon ke beech */
+  text-align: center;           /* center text */
+  overflow: hidden;             /* extra text hide na ho */
+  padding: 0 10px;              /* thoda side padding */
+}
+.top-title .main {
+  font-size: 16px;
+  font-weight: 700;
+  white-space: nowrap;          /* ek line me rahe */
+  overflow: hidden;
+  text-overflow: ellipsis;      /* agar bahut lamba ho to ... */
+}
+.top-title .sub {
+  font-size: 12px;
+  color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Desktop font size */
+@media(min-width:768px){
+  .top-title .main{font-size:22px}
+  .top-title .sub{font-size:14px}
+}
+
+/* SEARCH ICON */
+.top-right img{width:28px;cursor:pointer}
+
+/* ================= SEARCH BAR ================= */
+.top-search{
+  position:fixed;
+  top:55px;
+  left:0;
+  width:100%;
+  background:#fff;
+  padding:10px;
+  display:flex;
+  transform:translateY(-120%);
+  opacity:0;
+  visibility:hidden;
+  transition:.3s;
+  z-index:999;
+}
+.top-search.active{
+  transform:translateY(0);
+  opacity:1;
+  visibility:visible;
+}
+.top-search input{
+  flex:1;
+  padding:10px;
+  border:2px solid #000;
+  border-radius:8px;
+  font-weight:600;
+}
+.top-search button{
+  margin-left:10px;
+  font-size:22px;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar{
+  position:fixed;
+  top:55px;                 
+  left:0;
+  width:65%;                /* ⬅️ Width kam ki 65% */
+  max-width:300px;
+  height:calc(100% - 55px); 
+  background:#fff;
+  padding:25px;             /* Thoda padding zyada */
+  transform:translateX(-100%);
+  transition:.35s;
+  z-index:998;
+  box-shadow:5px 0 15px rgba(0,0,0,.2);
+}
+.sidebar.active{transform:translateX(0)}
+
+.sidebar a{
+  display:block;
+  margin:16px 0;            /* thoda gap */
+  font-size:18px;           /* text thoda bada */
+  text-decoration:none;
+  color:#333;
+}
+
+/* LANGUAGE */
+.language{
+  margin-top:25px;
+  font-weight:600;
+}
+.language span{
+  display:block;
+  margin-top:10px;
+  cursor:pointer;
+  color:#007bff;
+  font-size:16px;           /* thoda bada */
+}
+
+/* OVERLAY */
+.overlay{
+  position:fixed;
+  top:55px;
+  left:0;
+  width:100%;
+  height:calc(100% - 55px);
+  background:rgba(0,0,0,.3);
+  opacity:0;
+  visibility:hidden;
+  transition:.3s;
+  z-index:997;
+}
+.overlay.active{opacity:1;visibility:visible}
+
+/* ================= SLIDER ================= */
+.slider{margin-top:70px;overflow:hidden}
+.slides{display:flex;transition:1s}
+.slides img{width:100%;flex-shrink:0}
+
+.dots{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin:8px 0;
+}
+.dot{width:10px;height:10px;background:#999;border-radius:50%}
+.dot.active{background:#000}
+
+/* DESKTOP */
+@media(min-width:768px){
+  .top-title .main{font-size:22px}
+  .top-title .sub{font-size:14px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="menu-icon" id="menuBtn">
+    <div></div><div></div><div></div>
+  </div>
+
+  <div class="top-title">
+    <div class="main" id="titleMain">ग्रामपंचायत रोकडपाडा</div>
+    <div class="sub" id="titleSub">ता. सुरगाणा, जि. नाशिक</div>
+  </div>
+
+  <div class="top-right">
+    <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" id="searchIcon">
+  </div>
+</div>
+
+<!-- SEARCH -->
+<div class="top-search" id="topSearch">
+  <input type="text" placeholder="Search...">
+  <button id="closeSearch">&times;</button>
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <a href="#" data-en="Home" data-mr="मुख्यपृष्ठ">मुख्यपृष्ठ</a>
+   <a href="#" data-en="Information of GramPanchayat" data-mr="ग्रामपंचायतीची माहिती">ग्रामपंचायत पदाधिकारी<a/>
+  <a href="#" data-en="GramPanchayat Padadhikari" data-mr="ग्रामपंचायत पदाधिकारी">ग्रामपंचायत पदाधिकारी</a>
+
+  <div class="language">Language
+    <span onclick="setLang('en')">English</span>
+    <span onclick="setLang('mr')">मराठी</span>
+  </div>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+<!-- SLIDER -->
+<div class="slider">
+  <div class="slides" id="slides">
+    <img src="https://i.ibb.co/5Xmd6WGb/20251017-161832.jpg">
+    <img src="https://i.ibb.co/KC6SnG5/20251017-162520.jpg">
+    <img src="https://i.ibb.co/0y5m1nTB/20251017-165253.jpg">
+  </div>
+  <div class="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+</div>
+
+<script>
+const menuBtn=document.getElementById("menuBtn");
+const sidebar=document.getElementById("sidebar");
+const overlay=document.getElementById("overlay");
+
+/* CLOSE SIDEBAR */
+function closeSidebar(){
+  menuBtn.classList.remove("active");
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+}
+
+/* MENU TOGGLE */
+menuBtn.onclick=()=>{
+  menuBtn.classList.toggle("active");
+  sidebar.classList.toggle("active");
+  overlay.classList.toggle("active");
+  topSearch.classList.remove("active");
+}
+
+overlay.onclick=closeSidebar;
+
+/* SEARCH */
+const searchIcon=document.getElementById("searchIcon");
+const topSearch=document.getElementById("topSearch");
+const closeSearch=document.getElementById("closeSearch");
+
+topSearch.classList.remove("active");
+
+searchIcon.onclick=()=>topSearch.classList.toggle("active");
+closeSearch.onclick=()=>topSearch.classList.remove("active");
+
+/* LANGUAGE */
+function setLang(lang){
+  titleMain.textContent = lang==="en" ? "Grampanchayat Rokadpada" : "ग्रामपंचायत रोकडपाडा";
+  titleSub.textContent  = lang==="en" ? "Tal. Surgana, Dist. Nashik" : "ता. सुरगाणा, जि. नाशिक";
+  document.querySelectorAll("[data-en]").forEach(el=>{
+    el.textContent = lang==="en" ? el.dataset.en : el.dataset.mr;
+  });
+}
+
+/* SLIDER */
+let i=0;
+setInterval(()=>{
+  i=(i+1)%3;
+  slides.style.transform=`translateX(-${i*100}%)`;
+  document.querySelectorAll(".dot").forEach(d=>d.classList.remove("active"));
+  document.querySelectorAll(".dot")[i].classList.add("active");
+},4000);
+</script>
+
+</body>
+</html>
