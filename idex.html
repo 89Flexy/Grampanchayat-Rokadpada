@@ -44,34 +44,19 @@ body{font-family:'Poppins',sans-serif;background:#f8f7f2}
 .menu-icon.active div:nth-child(2){opacity:0}
 .menu-icon.active div:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 
-/* CENTER TITLE FIXED */
-.top-bar {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 55px;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* icons left/right */
-  padding: 0 18px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.1);
-  z-index: 1000;
-}
-
 /* Top title container */
 .top-title {
-  flex: 1;                     /* space le left-right icon ke beech */
-  text-align: center;           /* center text */
-  overflow: hidden;             /* extra text hide na ho */
-  padding: 0 10px;              /* thoda side padding */
+  flex: 1;
+  text-align: center;
+  overflow: hidden;
+  padding: 0 10px;
 }
 .top-title .main {
   font-size: 16px;
   font-weight: 700;
-  white-space: nowrap;          /* ek line me rahe */
+  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;      /* agar bahut lamba ho to ... */
+  text-overflow: ellipsis;
 }
 .top-title .sub {
   font-size: 12px;
@@ -130,11 +115,11 @@ body{font-family:'Poppins',sans-serif;background:#f8f7f2}
   position:fixed;
   top:55px;                 
   left:0;
-  width:65%;                /* ⬅️ Width kam ki 65% */
+  width:65%;
   max-width:300px;
   height:calc(100% - 55px); 
   background:#fff;
-  padding:25px;             /* Thoda padding zyada */
+  padding:25px;
   transform:translateX(-100%);
   transition:.35s;
   z-index:998;
@@ -144,8 +129,8 @@ body{font-family:'Poppins',sans-serif;background:#f8f7f2}
 
 .sidebar a{
   display:block;
-  margin:16px 0;            /* thoda gap */
-  font-size:18px;           /* text thoda bada */
+  margin:16px 0;
+  font-size:18px;
   text-decoration:none;
   color:#333;
 }
@@ -160,7 +145,7 @@ body{font-family:'Poppins',sans-serif;background:#f8f7f2}
   margin-top:10px;
   cursor:pointer;
   color:#007bff;
-  font-size:16px;           /* thoda bada */
+  font-size:16px;
 }
 
 /* OVERLAY */
@@ -179,10 +164,17 @@ body{font-family:'Poppins',sans-serif;background:#f8f7f2}
 .overlay.active{opacity:1;visibility:visible}
 
 /* ================= SLIDER ================= */
-.slider{margin-top:70px;overflow:hidden}
-.slides{display:flex;transition:1s}
-.slides img{width:100%;flex-shrink:0}
+.slider{margin-top:70px;overflow:hidden;position:relative;}
+.slides{display:flex;transition:1s;width:300%;}
+.slide-wrapper{flex-shrink:0;width:100%;position:relative;}
+.slide-wrapper img{
+  width:100%;
+  height:auto;
+  aspect-ratio:16/9;
+  object-fit:cover;
+}
 
+/* Dots */
 .dots{
   display:flex;
   justify-content:center;
@@ -192,10 +184,27 @@ body{font-family:'Poppins',sans-serif;background:#f8f7f2}
 .dot{width:10px;height:10px;background:#999;border-radius:50%}
 .dot.active{background:#000}
 
-/* DESKTOP */
+/* ================= INFO BAR ================= */
+.info-bar {
+  background: #e6f2ff;
+  padding: 20px;
+  margin: 0 0 20px 0; /* remove extra bottom space */
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.info-bar .info-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.info-bar .info-text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
 @media(min-width:768px){
-  .top-title .main{font-size:22px}
-  .top-title .sub{font-size:14px}
+  .info-bar .info-title{font-size:26px}
+  .info-bar .info-text{font-size:18px}
 }
 </style>
 </head>
@@ -227,9 +236,8 @@ body{font-family:'Poppins',sans-serif;background:#f8f7f2}
 <!-- SIDEBAR -->
 <div class="sidebar" id="sidebar">
   <a href="#" data-en="Home" data-mr="मुख्यपृष्ठ">मुख्यपृष्ठ</a>
-   <a href="#" data-en="Information of GramPanchayat" data-mr="ग्रामपंचायतीची माहिती">ग्रामपंचायत पदाधिकारी<a/>
   <a href="#" data-en="GramPanchayat Padadhikari" data-mr="ग्रामपंचायत पदाधिकारी">ग्रामपंचायत पदाधिकारी</a>
-
+  <a href="#infoBar" data-en="Village Information" data-mr="गावाची माहिती">गावाची माहिती</a>
   <div class="language">Language
     <span onclick="setLang('en')">English</span>
     <span onclick="setLang('mr')">मराठी</span>
@@ -241,15 +249,56 @@ body{font-family:'Poppins',sans-serif;background:#f8f7f2}
 <!-- SLIDER -->
 <div class="slider">
   <div class="slides" id="slides">
-    <img src="https://i.ibb.co/5Xmd6WGb/20251017-161832.jpg">
-    <img src="https://i.ibb.co/KC6SnG5/20251017-162520.jpg">
-    <img src="https://i.ibb.co/0y5m1nTB/20251017-165253.jpg">
+    <div class="slide-wrapper">
+      <div class="img-container">
+        <img src="https://i.ibb.co/k26T13fr/7Bjxfx-L.png" alt="">
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="img-container">
+        <img src="https://i.ibb.co/KC6SnG5/20251017-162520.jpg" alt="">
+      </div>
+    </div>
+    <div class="slide-wrapper">
+      <div class="img-container">
+        <img src="https://i.ibb.co/0y5m1nTB/20251017-165253.jpg" alt="">
+      </div>
+    </div>
   </div>
   <div class="dots">
     <div class="dot active"></div>
     <div class="dot"></div>
     <div class="dot"></div>
   </div>
+</div>
+
+<style>
+.slider{margin-top:70px;overflow:hidden;position:relative;}
+.slides{display:flex;transition:1s;width:100%;}
+.slide-wrapper{flex-shrink:0;width:100%;position:relative;}
+.img-container{
+  width:100%;
+  position:relative;
+  padding-top:50%; /* 16:9 ratio → 9/16 = 0.5625 */
+  overflow:hidden;
+  border-radius:0px;
+}
+.img-container img{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+</style>
+
+<!-- INFO BAR / GAVACHI MAHITI -->
+<div class="info-bar" id="infoBar">
+  <h2 class="info-title" id="infoTitle">गावाची माहिती</h2>
+  <p class="info-text" id="infoText">
+    ग्रामपंचायत ही भारतीय खेड्यांमधील सर्वात खालच्या स्तरावरील मूलभूत प्रशासकीय संस्था असून, गावाचा कारभार पाहते; ती ग्रामसभेची कार्यकारी समिती असते आणि सरपंच, सदस्य मिळून निवडणूक प्रक्रियेद्वारे निवडले जातात, जे गाव विकासासाठी केंद्र व राज्य सरकारच्या योजना राबवतात आणि गावातील नागरिकांना विविध सेवा पुरवतात.
+  </p>
 </div>
 
 <script>
@@ -285,12 +334,28 @@ searchIcon.onclick=()=>topSearch.classList.toggle("active");
 closeSearch.onclick=()=>topSearch.classList.remove("active");
 
 /* LANGUAGE */
+function updateInfoLang(lang){
+  const infoTitle = document.getElementById("infoTitle");
+  const infoText  = document.getElementById("infoText");
+
+  if(lang==="en"){
+    infoTitle.textContent = "Village Information";
+    infoText.textContent  = "The Gram Panchayat is the lowest-level fundamental administrative institution in Indian villages, responsible for village administration. It functions as the executive committee of the Gram Sabha, with the Sarpanch and members elected through the election process. They implement central and state government schemes for village development and provide various services to villagers.";
+  } else {
+    infoTitle.textContent = "गावाची माहिती";
+    infoText.textContent  = "ग्रामपंचायत ही भारतीय खेड्यांमधील सर्वात खालच्या स्तरावरील मूलभूत प्रशासकीय संस्था असून, गावाचा कारभार पाहते; ती ग्रामसभेची कार्यकारी समिती असते आणि सरपंच, सदस्य मिळून निवडणूक प्रक्रियेद्वारे निवडले जातात, जे गाव विकासासाठी केंद्र व राज्य सरकारच्या योजना राबवतात आणि गावातील नागरिकांना विविध सेवा पुरवतात.";
+  }
+}
+
 function setLang(lang){
   titleMain.textContent = lang==="en" ? "Grampanchayat Rokadpada" : "ग्रामपंचायत रोकडपाडा";
   titleSub.textContent  = lang==="en" ? "Tal. Surgana, Dist. Nashik" : "ता. सुरगाणा, जि. नाशिक";
+  
   document.querySelectorAll("[data-en]").forEach(el=>{
     el.textContent = lang==="en" ? el.dataset.en : el.dataset.mr;
   });
+
+  updateInfoLang(lang);
 }
 
 /* SLIDER */
@@ -302,6 +367,5 @@ setInterval(()=>{
   document.querySelectorAll(".dot")[i].classList.add("active");
 },4000);
 </script>
-
 </body>
 </html>
