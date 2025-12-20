@@ -839,6 +839,77 @@ document.querySelectorAll('.sidebar a').forEach(link=>{
   .bottom-nav{display:none;}
 }
 </style>
+  <style>/* Top Bar Desktop */
+@media(min-width:992px){
+  .top-bar{
+    height:100px;
+    padding:0 40px;
+  }
+  .top-title{
+    text-align:left;
+  }
+  .top-logo{
+    height:80px;
+    margin-right:15px;
+  }
+}
+
+/* Sidebar Desktop */
+@media(min-width:992px){
+  .sidebar{
+    width:280px;
+    transform:translateX(0); /* Always visible on desktop */
+    position:relative;
+    top:0;
+    height:auto;
+    padding-top:15px;
+    box-shadow:none;
+    background:#fff;
+  }
+  .overlay{display:none;} /* No overlay on desktop */
+  .menu-icon{display:none;} /* Hide hamburger on desktop */
+}
+
+/* Officer Cards Desktop */
+@media(min-width:992px){
+  #officerBox{
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:flex-start;
+    gap:20px;
+  }
+  .pad-card{
+    width:250px;
+    margin:15px;
+  }
+}
+
+/* Services Grid Desktop */
+@media(min-width:992px){
+  .services-grid{
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    margin:20px 40px;
+  }
+}
+
+/* Slider Desktop */
+@media(min-width:992px){
+  .slider .img-container{
+    padding-top:40%; /* less height ratio */
+  }
+}
+
+/* Info Bar Desktop */
+@media(min-width:992px){
+  .info-bar{
+    margin:25px 40px;
+    padding:25px;
+  }
+  .info-image img{
+    width:400px;
+  }
+}</style>
 </body>
 </html>
 
