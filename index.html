@@ -313,47 +313,6 @@ body{font-family:'Poppins',sans-serif;background:#f8f7f2;scroll-behavior:smooth}
   background:#0b4da2;
   color:#fff;
 }
-/* LANGUAGE BUTTON CENTER */
-.slider-language{
-  display:flex;
-  justify-content:center;   /* horizontal center */
-  align-items:center;
-  gap:12px;
-  margin:16px auto 12px;
-  width:100%;
-}
-
-/* Buttons */
-.slider-language button{
-  border:none;
-  padding:8px 18px;
-  border-radius:25px;
-  font-weight:600;
-  font-size:14px;
-  cursor:pointer;
-  background:#e6f2ff;
-  color:#0b4da2;
-  transition:all .25s ease;
-  box-shadow:0 2px 5px rgba(0,0,0,.15);
-}
-
-/* Hover */
-.slider-language button:hover{
-  background:#0b4da2;
-  color:#fff;
-  transform:translateY(-2px);
-}
-
-/* Active click */
-.slider-language button:active{
-  transform:scale(.95);
-}
-
-/* Selected language */
-.slider-language button.active{
-  background:#0d6efd;
-  color:#fff;
-}
 </style>
 </head>
 <body>
@@ -441,23 +400,42 @@ body{font-family:'Poppins',sans-serif;background:#f8f7f2;scroll-behavior:smooth}
 </div>
 <!-- LANGUAGE SWITCH BELOW SLIDER -->
 <div class="slider-language">
-  <button onclick="changeLanguage('mr')">मराठी</button>
-  <button onclick="changeLanguage('en')">English</button>
-  <button onclick="changeLanguage('hi')">हिंदी</button>
+  <button>मराठी</button>
+  <button>English</button>
+  <button>हिंदी</button>
 </div>
-
 <script>
-function changeLanguage(lang) {
-  const select = document.querySelector(".goog-te-combo");
-  if (!select) {
-    setTimeout(() => changeLanguage(lang), 500);
-    return;
-  }
-  select.value = lang;
-  select.dispatchEvent(new Event("change"));
+function setLang(lang){
+  // Do nothing
+  console.log("Language switch disabled");
 }
+<script>
+function setLang(lang){
+  // Disabled language switching
+}
+
+// MENU & SEARCH
+const menuBtn = document.getElementById("menuBtn");
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("overlay");
+const searchIcon = document.getElementById("searchIcon");
+const topSearch = document.getElementById("topSearch");
+
+menuBtn.onclick = () => {
+  sidebar.classList.toggle("active");
+  overlay.classList.toggle("active");
+  menuBtn.classList.toggle("active");
+};
+overlay.onclick = () => {
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+  menuBtn.classList.remove("active");
+  topSearch.classList.remove("active");
+};
+searchIcon.onclick = () => topSearch.classList.toggle("active");
+document.getElementById("closeSearch").onclick = () => topSearch.classList.remove("active");
 </script>
-<div id="google_translate_element" style="display:none;"></div>
+</script>
 <div class="services-grid">
 
   <!-- 1. गावाविषयी माहिती -->
@@ -857,12 +835,10 @@ document.querySelectorAll('.sidebar a').forEach(link=>{
   margin-bottom: 2px;
   filter: brightness(0) invert(1);
 }
-
 @media(min-width:992px){
   .bottom-nav{display:none;}
 }
 </style>
-
 </body>
 </html>
 
