@@ -909,7 +909,22 @@ document.querySelectorAll('.sidebar a').forEach(link=>{
   .info-image img{
     width:400px;
   }
+  /* Services section desktop grid */
+@media(min-width: 992px){
+  .menu-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 15px;
+  }
+  .menu-section .menu-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
 }</style>
+  
 </body>
 </html>
 
