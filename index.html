@@ -876,6 +876,26 @@ function googleTranslateElementInit() {
 </script>
 
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<style>/* ===== HIDE GOOGLE TRANSLATE BAR ===== */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0px !important;
+}
+
+/* Hide Google translate dropdown + logo */
+#google_translate_element,
+.goog-logo-link,
+.goog-te-gadget {
+  display: none !important;
+}
+
+/* Remove extra margin added by google */
+.goog-te-gadget-icon {
+  display: none !important;
+}</style>
 </body>
 </html>
 
