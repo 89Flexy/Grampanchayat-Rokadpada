@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="mr">
 <head>
@@ -5,36 +6,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Grampanchayat Rokadpada</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Poppins',sans-serif;background:#f8f7f2}
+body{font-family:'Poppins',sans-serif;background:#f8f7f2;scroll-behavior:smooth}
 
 /* TOP BAR */
 .top-bar{
   position:fixed;top:0;left:0;width:100%;height:85px;
   background:#fff;display:flex;align-items:center;
-  padding:0 18px;box-shadow:0 2px 8px rgba(0,0,0,.1);z-index:1000
+  padding:0 18px;box-shadow:0 2px 8px rgba(0,0,0,.1);
+  z-index:10003
 }
-.menu-icon{width:26px;height:20px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer}
+.menu-icon{width:26px;height:20px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;}
 .menu-icon div{height:3px;background:#000;border-radius:2px;transition: all 0.4s ease;transform-origin:center}
-
-/* Hamburger → X */
 .menu-icon.active div:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
 .menu-icon.active div:nth-child(2){opacity:0;}
 .menu-icon.active div:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
-
-.top-title{flex:1;text-align:center}
+.top-title{flex:1;text-align:center;}
 .top-title .main{font-size:16px;font-weight:700}
 .top-title .sub{font-size:12px;color:#555}
-.top-right img{width:28px;cursor:pointer}
+.top-right img{width:28px;cursor:pointer;}
 
 /* SEARCH */
 .top-search{
-  position:fixed;top:78px;left:0;width:100%;
+  position:fixed;top:85px;left:0;width:100%;
   background:#fff;padding:10px;display:flex;
   transform:translateY(-120%);opacity:0;visibility:hidden;
-  transition:.3s;z-index:999
+  transition:.3s;z-index:10002
 }
 .top-search.active{transform:translateY(0);opacity:1;visibility:visible}
 .top-search input{flex:1;padding:10px;border:2px solid #000;border-radius:8px}
@@ -44,7 +42,8 @@ body{font-family:'Poppins',sans-serif;background:#f8f7f2}
 .sidebar{
   position:fixed;top:0;left:0;width:65%;max-width:300px;height:100%;
   background:rgba(255,255,255,.9);backdrop-filter:blur(14px);
-  padding:25px;transform:translateX(-100%);transition:.3s;z-index:998;
+  padding:100px 25px 25px 25px; /* top padding to avoid top bar */
+  transform:translateX(-100%);transition:.3s;z-index:10002;
   display:flex;flex-direction:column;
 }
 .sidebar.active{transform:translateX(0)}
@@ -54,35 +53,26 @@ body{font-family:'Poppins',sans-serif;background:#f8f7f2}
 .sidebar hr{margin:10px 0;border:none;border-top:1px solid #aaa}
 .sidebar a{display:block;margin:16px 0;font-size:18px;font-weight:600;color:#111;text-decoration:none}
 .sidebar a.active{color:#007bff;font-weight:700;}
-
-/* New line above language */
 .menu-line{
-  margin-top:25px;
-  font-weight:600;
-  font-size:16px;
-  color:#333;
-  border-bottom:1px solid #aaa;
-  padding-bottom:5px;
+  margin-top:25px;font-weight:600;font-size:16px;color:#333;
+  border-bottom:1px solid #aaa;padding-bottom:5px;
 }
-
 .language{margin-top:15px;font-weight:600}
 .language span{display:block;margin-top:10px;color:#007bff;cursor:pointer}
 
 /* OVERLAY */
 .overlay{
   position:fixed;top:0;left:0;width:100%;height:100%;
-  background:rgba(0,0,0,.3);opacity:0;visibility:hidden;transition:.3s;z-index:997
+  background:rgba(0,0,0,.3);opacity:0;visibility:hidden;transition:.3s;z-index:9998
 }
 .overlay.active{opacity:1;visibility:visible}
 
 /* SLIDER */
-.slider{margin-top:90px;overflow:hidden;}
+.slider{margin-top:90px;overflow:hidden;position:relative;}
 .slides{display:flex;transition:transform 0.6s ease;}
 .slide-wrapper{min-width:100%;flex-shrink:0;}
 .img-container{width:100%;padding-top:56.25%;position:relative;}
 .img-container img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;}
-
-/* Slider Dots below images */
 .dots{text-align:center;margin-top:10px;}
 .dot{height:12px;width:12px;margin:0 5px;background-color:#bbb;border-radius:50%;display:inline-block;cursor:pointer;transition:background-color 0.3s;}
 .dot.active{background-color:#007bff;}
@@ -90,7 +80,8 @@ body{font-family:'Poppins',sans-serif;background:#f8f7f2}
 /* INFO BAR */
 .info-bar{
   background:#e6f2ff;padding:20px;margin:20px;border-radius:12px;
-  box-shadow:0 2px 6px rgba(0,0,0,.1)
+  box-shadow:0 2px 6px rgba(0,0,0,.1);
+  scroll-margin-top:100px; /* offset top bar for scroll */
 }
 .info-title{
   display:flex;justify-content:space-between;align-items:center;
@@ -98,7 +89,7 @@ body{font-family:'Poppins',sans-serif;background:#f8f7f2}
   padding:10px;border-radius:8px;margin-bottom:10px
 }
 .info-title span:first-child{flex:1;text-align:center}
-.toggle-btn{cursor:pointer;font-size:22px}
+.toggle-btn{cursor:pointer;font-size:22px;user-select:none}
 .info-text{
   text-align:center;font-size:16px;
   max-height:500px;
@@ -138,7 +129,13 @@ body{font-family:'Poppins',sans-serif;background:#f8f7f2}
 .footer-text { margin: 5px 0; font-weight: 600; color: #333; }  
 .footer-social { margin-top: 10px; display: flex; justify-content: center; align-items: center; }  
 .facebook-icon { display: inline-block; width: 40px; height: 40px; border-radius: 50%; overflow: hidden; }  
-.facebook-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }  
+.facebook-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* DESKTOP VIEW: 3 cards per row */
+@media(min-width: 992px){
+  #officerBox{flex-direction:row;flex-wrap:wrap;justify-content:center;}
+  .pad-card{margin:15px;width:250px;}
+}
 </style>
 </head>
 <body>
@@ -147,8 +144,8 @@ body{font-family:'Poppins',sans-serif;background:#f8f7f2}
 <div class="top-bar">
   <div class="menu-icon" id="menuBtn"><div></div><div></div><div></div></div>
   <div class="top-title">
-    <div class="main" id="titleMain">ग्रामपंचायत रोकडपाडा</div>
-    <div class="sub" id="titleSub">ता. सुरगाणा, जि. नाशिक</div>
+    <div class="main" id="titleMain" data-en="Grampanchayat Rokadpada" data-mr="ग्रामपंचायत रोकडपाडा">ग्रामपंचायत रोकडपाडा</div>
+    <div class="sub" id="titleSub" data-en="Tal. Surgana, Dist. Nashik" data-mr="ता. सुरगाणा, जि. नाशिक">ता. सुरगाणा, जि. नाशिक</div>
   </div>
   <div class="top-right">
     <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" id="searchIcon">
@@ -163,17 +160,11 @@ body{font-family:'Poppins',sans-serif;background:#f8f7f2}
 
 <!-- SIDEBAR -->
 <div class="sidebar" id="sidebar">
-  <div class="sidebar-logo">
-    <img src="https://via.placeholder.com/40" alt="Logo">
-    <span class="logo-text">Rokadpada</span>
-  </div>
   <hr>
-  <a href="#" data-en="Home" data-mr="मुख्यपृष्ठ" class="active">मुख्यपृष्ठ</a>
+  <a href="#slider" data-en="Home" data-mr="मुख्यपृष्ठ" class="active">मुख्यपृष्ठ</a>
   <a href="#infoBar" data-en="Village Information" data-mr="गावाची माहिती">गावाची माहिती</a>
   <a href="#padadhikari" data-en="Gram Panchayat Officials" data-mr="ग्रामपंचायत पदाधिकारी">ग्रामपंचायत पदाधिकारी</a>
-  
   <div class="menu-line">Language</div>
-  
   <div class="language">
     <span onclick="setLang('mr')">मराठी</span>
     <span onclick="setLang('en')">English</span>
@@ -182,7 +173,7 @@ body{font-family:'Poppins',sans-serif;background:#f8f7f2}
 <div class="overlay" id="overlay"></div>
 
 <!-- SLIDER -->
-<div class="slider">
+<div class="slider" id="slider">
   <div class="slides" id="slides">
     <div class="slide-wrapper"><div class="img-container"><img src="https://i.ibb.co/k26T13fr/7Bjxfx-L.png"></div></div>
     <div class="slide-wrapper"><div class="img-container"><img src="https://i.ibb.co/KC6SnG5/20251017-162520.jpg"></div></div>
@@ -194,45 +185,42 @@ body{font-family:'Poppins',sans-serif;background:#f8f7f2}
 <!-- INFO -->
 <div class="info-bar" id="infoBar">
   <div class="info-title">
-    <span id="infoTitle">गावाची माहिती</span>
-    <span class="toggle-btn">−</span>
+    <span id="infoTitle" data-en="Village Information" data-mr="गावाची माहिती">गावाची माहिती</span>
+    <span class="toggle-btn" onclick="toggleInfo('infoText', this)">−</span>
   </div>
-  <p class="info-text" id="infoText">
-    रोकडपाडा हे नाशिक जिल्ह्यातील सुरगाणा तालुक्यात असलेले एक गाव आहे, जेथे प्रामुख्याने मराठी भाषा बोलली जाते आणि हे गाव नाशिक शहरापासून सुमारे 107 किमी दूर आहे, तसेच सुरगाणा तालुक्याचे एक भाग असून येथे ग्रामपंचायत आहे आणि स्थानिक लोकजीवन आदिवासी आणि शेतीशी जोडलेले आहे. 
-
-ठिकाण:
-जिल्हा: नाशिक
-तालुका: सुरगाणा 
-लोकजीवन व संस्कृती:
-भाषा: मराठी
-बोलीभाषा: स्थानिक बोलीभाषा वापरली जाते.
-स्थानिक वैशिष्ट्ये: हे गाव आदिवासीबहुल भागात येते, त्यामुळे येथील लोकजीवन संस्कृती आणि शेती यावर आधारित आहे. </p>
+  <p class="info-text" id="infoText" data-en="Rokadpada is a village located in the Surgana taluka of Nashik district in Maharashtra.The village has its own Gram Panchayat and falls under the Surgana administrative block.The village has its own Gram Panchayat and falls under the Surgana administrative block.Lifestyle & Culture Tribal Community The village is situated in a tribal-dominated region, and the local culture is deeply connected to nature." data-mr="रोकडपाडा हे नाशिक जिल्ह्यातील सुरगाणा तालुक्यात असलेले एक गाव आहे, जेथे प्रामुख्याने मराठी भाषा बोलली जाते आणि हे गाव नाशिक शहरापासून सुमारे 107 किमी दूर आहे, तसेच सुरगाणा तालुक्याचे एक भाग असून येथे ग्रामपंचायत आहे आणि स्थानिक लोकजीवन आदिवासी आणि शेतीशी जोडलेले आहे. ठिकाण: जिल्हा: नाशिक तालुका: सुरगाणा लोकजीवन व संस्कृती: भाषा: मराठी बोलीभाषा: स्थानिक बोलीभाषा वापरली जाते. स्थानिक वैशिष्ट्ये: हे गाव आदिवासीबहुल भागात येते, त्यामुळे येथील लोकजीवन संस्कृती आणि शेती यावर आधारित आहे.">
+    रोकडपाडा हे नाशिक जिल्ह्यातील सुरगाणा तालुक्यात असलेले एक गाव आहे, जेथे प्रामुख्याने मराठी भाषा बोलली जाते आणि हे गाव नाशिक शहरापासून सुमारे 107 किमी दूर आहे, तसेच सुरगाणा तालुक्याचे एक भाग असून येथे ग्रामपंचायत आहे आणि स्थानिक लोकजीवन आदिवासी आणि शेतीशी जोडलेले आहे. ठिकाण: जिल्हा: नाशिक तालुका: सुरगाणा लोकजीवन व संस्कृती: भाषा: मराठी बोलीभाषा: स्थानिक बोलीभाषा वापरली जाते. स्थानिक वैशिष्ट्ये: हे गाव आदिवासीबहुल भागात येते, त्यामुळे येथील लोकजीवन संस्कृती आणि शेती यावर आधारित आहे.
+  </p>
 </div>
 
 <!-- PADADHIKARI -->
 <div class="info-bar" id="padadhikari">
   <div class="info-title">
-    <span id="officerTitle">ग्रामपंचायत पदाधिकारी</span>
-    <span class="toggle-btn">−</span>
+    <span id="officerTitle" data-en="Gram Panchayat Officials" data-mr="ग्रामपंचायत पदाधिकारी">ग्रामपंचायत पदाधिकारी</span>
+    <span class="toggle-btn" onclick="toggleInfo('officerBox', this)">−</span>
   </div>
-
   <div class="info-text" id="officerBox">
     <div class="pad-card">
       <div class="photo-border"><img src="https://i.ibb.co/qYhXZD2L/Picsart-25-11-27-08-18-00-773.jpg"></div>
-      <div class="officer-post" id="postText">ग्रामसेवक</div>
-      <div class="officer-name" id="nameText">नाव – <strong>मुरलीधर सुकर धूम</strong></div>
+      <div class="officer-post" data-en="Gramsevak" data-mr="ग्रामसेवक">ग्रामसेवक</div>
+      <div class="officer-name" data-en="Name – Murlidhar Sukar Dhum" data-mr="नाव – मुरलीधर सुकर धूम">नाव – <strong>मुरलीधर सुकर धूम</strong></div>
     </div>
     <div class="pad-card">
       <div class="photo-border"><img src="https://i.ibb.co/jZ1xWbr2/20251114-210116.png"></div>
-      <div class="officer-post" id="sarpanchPost">सरपंच</div>
-      <div class="officer-name" id="sarpanchName">नाव – <strong>(सरपंच नाव)</strong></div>
+      <div class="officer-post" data-en="Sarpanch" data-mr="सरपंच">सरपंच</div>
+      <div class="officer-name" data-en="Name – (Sarpanch Name)" data-mr="नाव – (सरपंच नाव)">नाव – <strong>(सरपंच नाव)</strong></div>
+    </div>
+    <div class="pad-card">
+      <div class="photo-border"><img src="https://i.ibb.co/3GN2RHS/11d32eb134474608682420e28ddc7e71.jpg"></div>
+      <div class="officer-post" data-en="Deputy Sarpanch" data-mr="उपसरपंच">उपसरपंच</div>
+      <div class="officer-name" data-en="Name – (Deputy Sarpanch Name)" data-mr="नाव – (उपसरपंच नाव)">नाव – <strong>(उपसरपंच नाव)</strong></div>
     </div>
   </div>
 </div>
 
 <!-- FOOTER -->
 <footer class="footer">
-  <p class="footer-text" id="footerText1" data-en="Grampanchayat Rokadpada Tal. Surgana Dist. Nashik" data-mr="ग्रामपंचायत रोकडपाडा ता.सुरगाणा जि.नाशिक">
+  <p class="footer-text" data-en="Grampanchayat Rokadpada Tal. Surgana Dist. Nashik" data-mr="ग्रामपंचायत रोकडपाडा ता.सुरगाणा जि.नाशिक">
     ग्रामपंचायत रोकडपाडा ता.सुरगाणा जि.नाशिक
   </p>
   <p class="footer-text">gprokadpada1957@gmail.com</p>
@@ -244,108 +232,76 @@ body{font-family:'Poppins',sans-serif;background:#f8f7f2}
 </footer>
 
 <script>
-// MENU
-const menuBtn=document.getElementById("menuBtn");
-const sidebar=document.getElementById("sidebar");
-const overlay=document.getElementById("overlay");
-const searchIcon=document.getElementById("searchIcon");
-const topSearch=document.getElementById("topSearch");
+// MENU & SEARCH
+const menuBtn = document.getElementById("menuBtn");
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("overlay");
+const searchIcon = document.getElementById("searchIcon");
+const topSearch = document.getElementById("topSearch");
 
-menuBtn.onclick=()=>{
+menuBtn.onclick = () => {
   sidebar.classList.toggle("active");
   overlay.classList.toggle("active");
-  menuBtn.classList.toggle("active"); // hamburger → X
-}
-overlay.onclick=()=>{
+  menuBtn.classList.toggle("active");
+};
+overlay.onclick = () => {
   sidebar.classList.remove("active");
   overlay.classList.remove("active");
   menuBtn.classList.remove("active");
-}
-searchIcon.onclick=()=>topSearch.classList.toggle("active");
-document.getElementById("closeSearch").onclick=()=>topSearch.classList.remove("active");
+  topSearch.classList.remove("active");
+};
+searchIcon.onclick = () => topSearch.classList.toggle("active");
+document.getElementById("closeSearch").onclick = () => topSearch.classList.remove("active");
 
-// LANGUAGE
+// LANGUAGE SWITCH
 function setLang(lang){
-  titleMain.textContent = lang==="en" ? "Grampanchayat Rokadpada" : "ग्रामपंचायत रोकडपाडा";
-  titleSub.textContent = lang==="en" ? "Tal. Surgana, Dist. Nashik" : "ता. सुरगाणा, जि. नाशिक";
-  infoTitle.textContent = lang==="en" ? "Village Information" : "गावाची माहिती";
-  infoText.textContent = lang==="en" ? "Rokadpada is a village located in the Surgana taluka of Nashik district in Maharashtra.The village has its own Gram Panchayat and falls under the Surgana administrative block.The village has its own Gram Panchayat and falls under the Surgana administrative block.Lifestyle & Culture Tribal Community The village is situated in a tribal-dominated region, and the local culture is deeply connected to nature" : "ग्रामपंचायत ही गावाच्या विकासासाठी कार्य करणारी स्थानिक स्वराज्य संस्था आहे.";
-  officerTitle.textContent = lang==="en" ? "Gram Panchayat Officials" : "ग्रामपंचायत पदाधिकारी";
-  postText.textContent = lang==="en" ? "Gramsevak" : "ग्रामसेवक";
-  nameText.innerHTML = lang==="en" ? "Name – <strong>Murlidhar Sukar Dhum</strong>" : "नाव – <strong>मुरलीधर सुकर धूम</strong>";
-  sarpanchPost.textContent = lang==="en" ? "Sarpanch" : "सरपंच";
-  sarpanchName.innerHTML = lang==="en" ? "Name – <strong>(Sarpanch Name)</strong>" : "नाव – <strong>(सरपंच नाव)</strong>";
-  document.querySelectorAll("[data-en]").forEach(el=>el.textContent=lang==="en"?el.dataset.en:el.dataset.mr);
-  footerText1.textContent = lang==="en" ? footerText1.dataset.en : footerText1.dataset.mr;
+  document.querySelectorAll('.sidebar a').forEach(link=>{
+    link.textContent = link.getAttribute('data-' + lang);
+  });
+  document.querySelectorAll('[data-en],[data-mr]').forEach(el=>{
+    el.textContent = el.getAttribute('data-' + lang);
+  });
 }
 
-// INFO TOGGLE +/-
-document.querySelectorAll('.toggle-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    const infoText = btn.parentElement.nextElementSibling;
-    infoText.classList.toggle('hide');
-    btn.textContent = infoText.classList.contains('hide') ? '+' : '−';
-  })
-})
+// TOGGLE INFO
+function toggleInfo(id, btn){
+  const el = document.getElementById(id);
+  el.classList.toggle('hide');
+  btn.textContent = el.classList.contains('hide') ? '+' : '−';
+}
 
 // SLIDER
-const slideContainer = document.getElementById('slides');
-const slides = document.querySelectorAll('.slide-wrapper');
+const slides = document.getElementById('slides');
+const slideCount = slides.children.length;
 const dotsContainer = document.getElementById('dots');
-let slideIndex = 0;
-
-// Create dots
-slides.forEach((_,i)=>{
+let currentIndex = 0;
+for(let i=0;i<slideCount;i++){
   const dot = document.createElement('span');
   dot.classList.add('dot');
-  dot.addEventListener('click', ()=>{currentSlide(i)});
+  if(i===0) dot.classList.add('active');
+  dot.onclick = () => goToSlide(i);
   dotsContainer.appendChild(dot);
-});
-
-function showSlide(n){
-  if(n >= slides.length) slideIndex = 0;
-  if(n < 0) slideIndex = slides.length -1;
-  slideContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
-  dotsContainer.querySelectorAll('.dot').forEach(dot=>dot.classList.remove('active'));
-  dotsContainer.querySelectorAll('.dot')[slideIndex].classList.add('active');
 }
+function goToSlide(index){
+  slides.style.transform = `translateX(-${index*100}%)`;
+  currentIndex = index;
+  document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===index));
+}
+setInterval(()=>{goToSlide((currentIndex+1)%slideCount);},5000);
 
-function nextSlide(){slideIndex++; showSlide(slideIndex);}
-let sliderInterval = setInterval(nextSlide,4000);
-
-function currentSlide(n){slideIndex=n; showSlide(slideIndex); clearInterval(sliderInterval); sliderInterval=setInterval(nextSlide,4000);}
-showSlide(slideIndex);
-
-// MENU scroll + highlight
-const menuLinks = document.querySelectorAll('.sidebar a');
-menuLinks.forEach(link => {
-  link.addEventListener('click', function(e){
+// SMOOTH SCROLL FROM MENU
+document.querySelectorAll('.sidebar a').forEach(link=>{
+  link.addEventListener('click', e=>{
     e.preventDefault();
-    const targetID = link.getAttribute('href').substring(1);
-    const targetElement = document.getElementById(targetID);
-    if(targetElement){
-      window.scrollTo({top: targetElement.offsetTop - 80, behavior: 'smooth'});
-    }
-    menuLinks.forEach(l => l.classList.remove('active'));
-    link.classList.add('active');
-    sidebar.classList.remove('active');
-    overlay.classList.remove('active');
-    menuBtn.classList.remove('active');
-  });
-});
-
-window.addEventListener('scroll', () => {
-  const fromTop = window.scrollY + 90;
-  menuLinks.forEach(link => {
-    const section = document.getElementById(link.getAttribute('href').substring(1));
-    if(section && section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop){
-      menuLinks.forEach(l => l.classList.remove('active'));
-      link.classList.add('active');
+    const target = document.querySelector(link.getAttribute('href'));
+    if(target){
+      target.scrollIntoView({behavior:'smooth'});
+      sidebar.classList.remove('active');
+      overlay.classList.remove('active');
+      menuBtn.classList.remove('active');
     }
   });
 });
 </script>
-
 </body>
 </html>
-
