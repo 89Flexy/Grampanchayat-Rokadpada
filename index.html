@@ -493,6 +493,10 @@ color:#fff;
   <img src="https://cdn-icons-png.flaticon.com/512/2966/2966327.png">  
   <span>आरोग्य विभाग</span>  
 </a>
+  <a href="admin.html" id="adminMenu" class="menu-card">
+  <img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png">
+  <span>Admin</span>
+</a>
 
   </div>    </div>  
 </div>  <div class="overlay" id="overlay"></div>  
@@ -743,11 +747,7 @@ overlay.onclick = () => {
 searchIcon.onclick = () => topSearch.classList.toggle("active");  
 document.getElementById("closeSearch").onclick = () => topSearch.classList.remove("active");  
   
-// LANGUAGE SWITCH  
-function setLang(lang){
-  console.log("Language button clicked:", lang);
-  // intentionally empty – no content change
-}
+
   
 // TOGGLE INFO  
 function toggleInfo(id, btn){  
@@ -789,6 +789,35 @@ document.querySelectorAll('.sidebar a').forEach(link=>{
   });  
 });  
 </script> 
+<script>
+function setLang(lang){
+
+  // 1️⃣ HTML lang attribute change
+  document.documentElement.lang = lang;
+
+  // 2️⃣ All elements having data-mr / data-en / data-hi
+  document.querySelectorAll('[data-mr]').forEach(el => {
+    if(lang === 'mr' && el.dataset.mr){
+      el.innerHTML = el.dataset.mr;
+    }
+    if(lang === 'en' && el.dataset.en){
+      el.innerHTML = el.dataset.en;
+    }
+    if(lang === 'hi' && el.dataset.hi){
+      el.innerHTML = el.dataset.hi;
+    }
+  });
+
+  // 3️⃣ Save language in localStorage
+  localStorage.setItem("siteLang", lang);
+}
+
+// 4️⃣ Auto load saved language
+document.addEventListener("DOMContentLoaded", () => {
+  const savedLang = localStorage.getItem("siteLang") || "mr";
+  setLang(savedLang);
+});
+</script>
 <!-- FOOTER -->  
 <footer class="footer">  
   <div class="footer-top">  
@@ -928,7 +957,25 @@ document.querySelectorAll('.sidebar a').forEach(link=>{
   </a>  
 </div> 
 <style>  
-  
+  .admin-section{
+  margin-top:20px;
+  background:#f4f6ff;
+  padding:15px;
+  border-radius:12px;
+}
+
+.admin-card{
+  background:#fff;
+  padding:10px;
+  margin-bottom:10px;
+  border-radius:10px;
+  box-shadow:0 2px 6px rgba(0,0,0,.1);
+}
+
+.admin-card p{
+  margin:4px 0;
+  font-size:14px;
+}
 .bottom-nav {  
   position: fixed;  
   bottom: 0;  
@@ -961,4 +1008,5 @@ document.querySelectorAll('.sidebar a').forEach(link=>{
 </style> 
 </body>  
 </html>  
+
 
