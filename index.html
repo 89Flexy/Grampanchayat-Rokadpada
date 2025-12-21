@@ -769,21 +769,29 @@ function goToSlide(index){
   document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===index));  
 }  
 setInterval(()=>{goToSlide((currentIndex+1)%slideCount);},5000);  
-  
-// SMOOTH SCROLL FROM MENU  
-document.querySelectorAll('.sidebar a').forEach(link=>{  
-  link.addEventListener('click', e=>{  
-    e.preventDefault();  
-    const target = document.querySelector(link.getAttribute('href'));  
-    if(target){  
-      target.scrollIntoView({behavior:'smooth'});  
-      sidebar.classList.remove('active');  
-      overlay.classList.remove('active');  
-      menuBtn.classList.remove('active');  
-    }  
-  });  
-});  
-</script> 
+document.querySelectorAll('.sidebar a').forEach(link => {
+  link.addEventListener('click', e => {
+
+    const href = link.getAttribute('href');
+
+    // ✅ Internal section scroll (#)
+    if(href.startsWith("#")){
+      e.preventDefault();
+
+      const target = document.querySelector(href);
+      if(target){
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+
+      // close sidebar
+      sidebar.classList.remove("active");
+      overlay.classList.remove("active");
+      menuBtn.classList.remove("active");
+    }
+    // ✅ ELSE: html pages → allow default behavior
+  });
+});
+</script>
 <script>
 function setLang(lang){
 
