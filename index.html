@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 <html lang="mr">
 <head>
-  <title>ग्रामपंचायत रोकडपाडा | Grampanchayat Rokadpada</title>
-<meta name="description" content="गावाची माहिती, सेवा, दाखले, कर भरा, तक्रार नोंदवा, कृषी, शिक्षण, आरोग्य विभागांची माहिती.">
-<link rel="icon" href="https://i.ibb.co/Y78mdhyG/20251220-142340.png" type="image/png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ग्रामपंचायत रोकडपाडा | Grampanchayat Rokadpada</title>
+<meta name="description" content="गावाची माहिती, सेवा, दाखले, कर भरा, तक्रार नोंदवा, कृषी, शिक्षण, आरोग्य विभागांची माहिती.">
+<link rel="icon" href="https://i.ibb.co/Y78mdhyG/20251220-142340.png" type="image/png">
 <title>Grampanchayat Rokadpada</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -336,186 +337,346 @@ body{font-family:'Poppins',sans-serif;background:#f8f7f2;scroll-behavior:smooth}
       <span>दाखले आणि प्रमाणपत्रे</span>
     </a>
 
-    <a href="#karbhara" class="menu-card">
+    <a href="karbhara.html" class="menu-card">
       <img src="https://cdn-icons-png.flaticon.com/512/3135/3135673.png">
       <span>कर भरा</span>
     </a>
 
-    <a href="#takrar" class="menu-card">
+    <a href="takrar.html" class="menu-card">
       <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png">
       <span>तक्रार नोंदवा</span>
     </a>
 
-    <a href="#krushi" class="menu-card">
+    <a href="krushi.html" class="menu-card">
       <img src="https://cdn-icons-png.flaticon.com/512/2909/2909764.png">
       <span>कृषी विभाग</span>
     </a>
 
-    <a href="#shikshan" class="menu-card">
+    <a href="shikshan.html" class="menu-card">
       <img src="https://cdn-icons-png.flaticon.com/512/2997/2997995.png">
       <span>शिक्षण विभाग</span>
     </a>
 
-    <a href="#mahasul" class="menu-card">
+    <a href="mahasul.html" class="menu-card">
       <img src="https://cdn-icons-png.flaticon.com/512/1261/1261163.png">
       <span>महसूल विभाग</span>
     </a>
 
-    <a href="#aarogya" class="menu-card">
+    <a href="aarogya.html" class="menu-card">
       <img src="https://cdn-icons-png.flaticon.com/512/2966/2966327.png">
       <span>आरोग्य विभाग</span>
     </a>
-  </div>
 
- 
+<a href="admin.html" class="menu-card" onclick="openAdminLogin()">
+  <img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png">
+  <span>Admin Login</span>
+</a>
+</div>
+
   </div>
 </div>
 
 <div class="overlay" id="overlay"></div>
 
-<!-- SLIDER -->
-<div class="slider" id="slider">
-  <div class="slides" id="slides">
-    <div class="slide-wrapper"><div class="img-container"><img src="https://i.ibb.co/B5HX3P7M/20251220-122539.jpg"></div></div>
-    <div class="slide-wrapper"><div class="img-container"><img src="https://i.ibb.co/gbyj2bgr/20251220-122510.jpg"></div></div>
-    <div class="slide-wrapper"><div class="img-container"><img src="https://i.ibb.co/tpJBWZKs/20251220-122442.jpg"></div></div>
- <div class="slide-wrapper"><div class="img-container"><img src="https://i.ibb.co/fz58qYV7/20251220-122600.jpg"></div></div>
-  </div>
-  <div class="dots" id="dots"></div>
-</div>
-<div class="services-grid">
+<br>
+<br>
+<br>
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>दाखले आणि प्रमाणपत्रे</title>
 
-  <!-- 1. गावाविषयी माहिती -->
-  <a href="dakhle.html" class="service-card">
-    <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png">
-    <span>गावाविषयी माहिती</span>
-  </a>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- 2. दाखले आणि प्रमाणपत्रे -->
-  <a href="#" class="service-card">
-    <img src="https://cdn-icons-png.flaticon.com/512/2991/2991108.png">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Poppins',sans-serif;
+  background:#f4f4f4;
+}
+
+/* ===== SECTION ===== */
+.info-bar{
+  padding:20px;
+}
+
+.info-title span{
+  font-size:22px;
+  font-weight:700;
+}
+
+.services-detail{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+  margin-top:15px;
+}
+
+.service-item{
+  background:#fff;
+  padding:15px;
+  border-radius:12px;
+  box-shadow:0 3px 8px rgba(0,0,0,.1);
+}
+
+.service-item h4{
+  margin-bottom:6px;
+}
+
+.service-item button{
+  margin-top:10px;
+  background:#0d6efd;
+  color:#fff;
+  border:none;
+  padding:8px 16px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+/* ===== MODAL ===== */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.5);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  visibility:hidden;
+  transition:.4s;
+  z-index:10000;
+}
+
+.modal.active{
+  opacity:1;
+  visibility:visible;
+}
+
+.modal-content{
+  background:#fff;
+  width:90%;
+  max-width:420px;
+  padding:22px;
+  border-radius:14px;
+  position:relative;
+  transform:translateY(40px);
+  opacity:0;
+  transition:.45s ease;
+}
+
+.modal.active .modal-content{
+  transform:translateY(0);
+  opacity:1;
+}
+
+.close-btn{
+  position:absolute;
+  top:10px;
+  right:14px;
+  font-size:22px;
+  cursor:pointer;
+}
+
+.modal-content h3{
+  text-align:center;
+  margin-bottom:12px;
+}
+
+.modal-content label{
+  display:block;
+  margin-top:10px;
+  font-weight:600;
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content textarea{
+  width:100%;
+  margin-top:5px;
+  padding:9px;
+  border-radius:8px;
+  border:1px solid #aaa;
+}
+
+.modal-content textarea{
+  height:80px;
+  resize:none;
+}
+
+.modal-content button{
+  margin-top:15px;
+  width:100%;
+  padding:10px;
+  background:#0d6efd;
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  font-weight:600;
+}
+.info-bar p{
+  text-align:center;
+  margin:8px 0 20px;
+  font-weight:600;
+}
+/* Service item text center */
+.service-item{
+  text-align:center;
+}
+
+.service-item h4{
+  text-align:center;
+}
+
+.service-item p{
+  text-align:center;
+}
+
+.service-item button{
+  display:inline-block;
+}
+.admin-section{
+  margin-top:20px;
+  background:#f4f6ff;
+  padding:15px;
+  border-radius:12px;
+}
+
+.admin-card{
+  background:#fff;
+  padding:10px;
+  margin-bottom:10px;
+  border-radius:10px;
+  box-shadow:0 2px 6px rgba(0,0,0,.1);
+}
+
+.admin-card p{
+  margin:4px 0;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+ <script>
+document.getElementById("choukshiForm").onsubmit = function(e){
+  e.preventDefault();
+
+  const data = {
+    name: this.querySelectorAll("input")[0].value,
+    mobile: this.querySelectorAll("input")[1].value,
+    type: this.querySelector("select").value,
+    msg: this.querySelector("textarea").value,
+    time: new Date().toLocaleString()
+  };
+
+  let allData = JSON.parse(localStorage.getItem("choukshiData")) || [];
+  allData.push(data);
+  localStorage.setItem("choukshiData", JSON.stringify(allData));
+
+  alert("तुमची चौकशी पाठवली गेली!");
+  this.reset();
+  document.getElementById("choukshiModal").classList.remove("active");
+};
+</script>
+
+
+<!-- ===== SERVICES DETAIL SECTION ===== -->
+<section id="dakhle" class="info-bar">
+  <div class="info-title">
     <span>दाखले आणि प्रमाणपत्रे</span>
-  </a>
-
-  <!-- 3. कर भरा (same) -->
-  <a href="#" class="service-card">
-    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135673.png">
-    <span>कर भरा</span>
-  </a>
-
-  <!-- 4. तक्रार नोंदवा -->
-  <a href="#" class="service-card">
-    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png">
-    <span>तक्रार नोंदवा</span>
-  </a>
-
-  <!-- 5. कृषी विभाग (same) -->
-  <a href="#" class="service-card">
-    <img src="https://cdn-icons-png.flaticon.com/512/2909/2909764.png">
-    <span>कृषी विभाग</span>
-  </a>
-
-  <!-- 6. शिक्षण विभाग (same) -->
-  <a href="#" class="service-card">
-    <img src="https://cdn-icons-png.flaticon.com/512/2997/2997995.png">
-    <span>शिक्षण विभाग</span>
-  </a>
-
-  <!-- 7. महसूल विभाग -->
-  <a href="#" class="service-card">
-    <img src="https://cdn-icons-png.flaticon.com/512/1261/1261163.png">
-    <span>महसूल विभाग</span>
-  </a>
-
-  <!-- 8. आरोग्य विभाग (same) -->
-  <a href="#" class="service-card">
-    <img src="https://cdn-icons-png.flaticon.com/512/2966/2966327.png">
-    <span>आरोग्य विभाग</span>
-  </a>
-
-</div>
-<!-- INFO -->
-<div class="info-bar" id="infoBar">
-  <div class="info-title">
-    <span id="infoTitle" data-en="Village Information" data-mr="गावाची माहिती">गावाची माहिती</span>
-    <span class="toggle-btn" onclick="toggleInfo('infoText', this)">−</span>
   </div>
-  <div class="info-image">
-  <img src="https://i.ibb.co/B5HX3P7M/20251220-122539.jpg" alt="Rokadpada Village">
-</div>
-  <p class="info-text" id="infoText" data-en="Rokadpada is a village located in the Surgana taluka of Nashik district in Maharashtra.The village has its own Gram Panchayat and falls under the Surgana administrative block.The village has its own Gram Panchayat and falls under the Surgana administrative block.Lifestyle & Culture Tribal Community The village is situated in a tribal-dominated region, and the local culture is deeply connected to nature." data-mr="रोकडपाडा हे नाशिक जिल्ह्यातील सुरगाणा तालुक्यात असलेले एक गाव आहे, जेथे प्रामुख्याने मराठी भाषा बोलली जाते आणि हे गाव नाशिक शहरापासून सुमारे 107 किमी दूर आहे, तसेच सुरगाणा तालुक्याचे एक भाग असून येथे ग्रामपंचायत आहे आणि स्थानिक लोकजीवन आदिवासी आणि शेतीशी जोडलेले आहे. ठिकाण: जिल्हा: नाशिक तालुका: सुरगाणा लोकजीवन व संस्कृती: भाषा: मराठी बोलीभाषा: स्थानिक बोलीभाषा वापरली जाते. स्थानिक वैशिष्ट्ये: हे गाव आदिवासीबहुल भागात येते, त्यामुळे येथील लोकजीवन संस्कृती आणि शेती यावर आधारित आहे.">
-    रोकडपाडा हे नाशिक जिल्ह्यातील सुरगाणा तालुक्यात असलेले एक गाव आहे, जेथे प्रामुख्याने मराठी भाषा बोलली जाते आणि हे गाव नाशिक शहरापासून सुमारे 107 किमी दूर आहे, तसेच सुरगाणा तालुक्याचे एक भाग असून येथे ग्रामपंचायत आहे आणि स्थानिक लोकजीवन आदिवासी आणि शेतीशी जोडलेले आहे. ठिकाण: जिल्हा: नाशिक तालुका: सुरगाणा लोकजीवन व संस्कृती: भाषा: मराठी बोलीभाषा: स्थानिक बोलीभाषा वापरली जाते. स्थानिक वैशिष्ट्ये: हे गाव आदिवासीबहुल भागात येते, त्यामुळे येथील लोकजीवन संस्कृती आणि शेती यावर आधारित आहे.
-  </p>
-</div>
+  <p>आवश्यक असलेले दाखले आणि प्रमाणपत्रे येथे मिळवा</p>
 
-<!-- PADADHIKARI -->
+  <div class="services-detail">
 
-<div class="info-bar" id="padadhikari">
-  <div class="info-title">
-    <span id="officerTitle" data-en="Gram Panchayat Officials" data-mr="ग्रामपंचायत पदाधिकारी">ग्रामपंचायत पदाधिकारी</span>
-    <span class="toggle-btn" onclick="toggleInfo('officerBox', this)">−</span>
-  </div>
-  <div class="info-text" id="officerBox">
-   
-    <div class="pad-card">
-      <div class="photo-border"><img src="https://i.ibb.co/qYhXZD2L/Picsart-25-11-27-08-18-00-773.jpg"></div>
-      <div class="officer-post" data-en="Gramsevak" data-mr="ग्रामसेवक">ग्रामसेवक</div>
-      <div class="officer-name" data-en="Name – Murlidhar Sukar Dhum" data-mr="नाव – मुरलीधर सुकर धूम">नाव – <strong>मुरलीधर सुकर धूम</strong></div>
+    <div class="service-item">
+      <h4>जन्म प्रमाणपत्र</h4>
+      <p>
+        मुलांच्या जन्माची अधिकृत नोंदणी आणि जन्माचा दाखला मिळवा.
+        भविष्यातील अनेक महत्त्वाच्या कामांसाठी हा आवश्यक असतो.
+      </p>
+      <button class="choukshi-btn">चौकशी</button>
     </div>
-        <div class="pad-card">
-      <div class="photo-border"><img src="https://i.ibb.co/qYhXZD2L/Picsart-25-11-27-08-18-00-773.jpg"></div>
-      <div class="officer-post" data-en="Gramsevak" data-mr="ग्रामसेवक">ग्रामसेवक</div>
-      <div class="officer-name" data-en="Name – Murlidhar Sukar Dhum" data-mr="नाव – मुरलीधर सुकर धूम">नाव – <strong>मुरलीधर सुकर धूम</strong></div>
-      
+
+    <div class="service-item">
+      <h4>मृत्यू प्रमाणपत्र</h4>
+      <p>
+        मृत्यूची अधिकृत नोंदणी आणि मृत्यूचा दाखला मिळवा.
+        वारसा हक्क आणि इतर कायदेशीर बाबींसाठी महत्त्वाचे.
+      </p>
+      <button class="choukshi-btn">चौकशी</button>
     </div>
-      <div class="pad-card">
-      <div class="photo-border"><img src="https://i.ibb.co/qYhXZD2L/Picsart-25-11-27-08-18-00-773.jpg"></div>
-      <div class="officer-post" data-en="Gramsevak" data-mr="ग्रामसेवक">ग्रामसेवक</div>
-      <div class="officer-name" data-en="Name – Murlidhar Sukar Dhum" data-mr="नाव – मुरलीधर सुकर धूम">नाव – <strong>मुरलीधर सुकर धूम</strong></div>
+
+    <div class="service-item">
+      <h4>विवाह प्रमाणपत्र</h4>
+      <p>
+        विवाह नोंदणी आणि विवाह प्रमाणपत्र मिळवा.
+        सरकारी योजना आणि कायदेशीर बाबींसाठी आवश्यक.
+      </p>
+      <button class="choukshi-btn">चौकशी</button>
     </div>
-        <div class="pad-card">
-      <div class="photo-border"><img src="https://i.ibb.co/qYhXZD2L/Picsart-25-11-27-08-18-00-773.jpg"></div>
-      <div class="officer-post" data-en="Gramsevak" data-mr="ग्रामसेवक">ग्रामसेवक</div>
-      <div class="officer-name" data-en="Name – Murlidhar Sukar Dhum" data-mr="नाव – मुरलीधर सुकर धूम">नाव – <strong>मुरलीधर सुकर धूम</strong></div>
-      
+
+    <div class="service-item">
+      <h4>अधिवास प्रमाणपत्र</h4>
+      <p>
+        महाराष्ट्राचे नागरिकत्व सिद्ध करणारे प्रमाणपत्र.
+        शिक्षण आणि नोकरीसाठी महत्त्वाचे.
+      </p>
+      <button class="choukshi-btn">चौकशी</button>
     </div>
-        <div class="pad-card">
-      <div class="photo-border"><img src="https://i.ibb.co/qYhXZD2L/Picsart-25-11-27-08-18-00-773.jpg"></div>
-      <div class="officer-post" data-en="Gramsevak" data-mr="ग्रामसेवक">ग्रामसेवक</div>
-      <div class="officer-name" data-en="Name – Murlidhar Sukar Dhum" data-mr="नाव – मुरलीधर सुकर धूम">नाव – <strong>मुरलीधर सुकर धूम</strong></div>
-      
+
+    <div class="service-item">
+      <h4>नॉन-क्रिमीलेअर प्रमाणपत्र</h4>
+      <p>
+        आरक्षणाचा लाभ घेण्यासाठी आवश्यक असणारे प्रमाणपत्र.
+        सरकारी योजना आणि नोकऱ्यांसाठी उपयुक्त.
+      </p>
+      <button class="choukshi-btn">चौकशी</button>
     </div>
-        <div class="pad-card">
-      <div class="photo-border"><img src="https://i.ibb.co/qYhXZD2L/Picsart-25-11-27-08-18-00-773.jpg"></div>
-      <div class="officer-post" data-en="Gramsevak" data-mr="ग्रामसेवक">ग्रामसेवक</div>
-      <div class="officer-name" data-en="Name – Murlidhar Sukar Dhum" data-mr="नाव – मुरलीधर सुकर धूम">नाव – <strong>मुरलीधर सुकर धूम</strong></div>
-      
+
+    <div class="service-item">
+      <h4>उत्पन्नाचा दाखला</h4>
+      <p>
+        कुटुंबाच्या वार्षिक उत्पन्नाची माहिती देणारा दाखला.
+        आर्थिक योजना आणि शिष्यवृत्तीसाठी महत्त्वाचे.
+      </p>
+      <button class="choukshi-btn">चौकशी</button>
     </div>
-        <div class="pad-card">
-      <div class="photo-border"><img src="https://i.ibb.co/qYhXZD2L/Picsart-25-11-27-08-18-00-773.jpg"></div>
-      <div class="officer-post" data-en="Gramsevak" data-mr="ग्रामसेवक">ग्रामसेवक</div>
-      <div class="officer-name" data-en="Name – Murlidhar Sukar Dhum" data-mr="नाव – मुरलीधर सुकर धूम">नाव – <strong>मुरलीधर सुकर धूम</strong></div>
-      
+
+    <div class="service-item">
+      <h4>७/१२ उतारा व मिळकत प्रमाणपत्र</h4>
+      <p>
+        जमिनीची मालकी आणि मालमत्तेची माहिती दर्शवणारे
+        महत्त्वाचे दस्तऐवज.
+      </p>
+      <button class="choukshi-btn">चौकशी</button>
     </div>
-        <div class="pad-card">
-      <div class="photo-border"><img src="https://i.ibb.co/qYhXZD2L/Picsart-25-11-27-08-18-00-773.jpg"></div>
-      <div class="officer-post" data-en="Gramsevak" data-mr="ग्रामसेवक">ग्रामसेवक</div>
-      <div class="officer-name" data-en="Name – Murlidhar Sukar Dhum" data-mr="नाव – मुरलीधर सुकर धूम">नाव – <strong>मुरलीधर सुकर धूम</strong></div>
-      
+
+    <div class="service-item">
+      <h4>ज्येष्ठ नागरिक प्रमाणपत्र</h4>
+      <p>
+        ज्येष्ठ नागरिकांसाठीच्या योजना व सवलतींसाठी आवश्यक.
+      </p>
+      <button class="choukshi-btn">चौकशी</button>
     </div>
-    <div class="pad-card">
-      <div class="photo-border"><img src="https://i.ibb.co/jZ1xWbr2/20251114-210116.png"></div>
-      <div class="officer-post" data-en="Sarpanch" data-mr="सरपंच">सरपंच</div>
-      <div class="officer-name" data-en="Name – (Sarpanch Name)" data-mr="नाव – (सरपंच नाव)">नाव – <strong>(सरपंच नाव)</strong></div>
-    
-    
+
+    <div class="service-item">
+      <h4>रेशन कार्ड</h4>
+      <p>
+        सार्वजनिक वितरण प्रणाली अंतर्गत धान्याचा लाभ घेण्यासाठी.
+      </p>
+      <button class="choukshi-btn">चौकशी</button>
+    </div>
 
   </div>
-  
-</div>
-<br>
-<br>
+</section>
 
+
+
+</body>
+</html>
 
 <script>
     // TOGGLE INFO WITH IMAGE
@@ -600,6 +761,9 @@ document.querySelectorAll('.sidebar a').forEach(link=>{
   });
 });
 </script>
+<br>
+<br>
+<br>
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-top">
@@ -613,7 +777,7 @@ document.querySelectorAll('.sidebar a').forEach(link=>{
     <div class="links-section">
       <h3>जलद लिंक्स</h3>
       <ul>
-        <li><a href="#infoBar">गावाची माहिती</a></li>
+        <li><a href="Gavachi Mahiti.html">गावाची माहिती</a></li>
         <li><a href="#">लोकजीवन</a></li>
         <li><a href="#">लोकसंख्या</a></li>
         <li><a href="#">जवळची गांवे</a></li>
@@ -726,19 +890,19 @@ document.querySelectorAll('.sidebar a').forEach(link=>{
 
 <!-- BOTTOM NAVIGATION -->
 <div class="bottom-nav">
-  <a href="#slider">
+  <a href="index.html">
     <img src="https://cdn-icons-png.flaticon.com/512/1946/1946488.png">
     <span>मुख्यपृष्ठ</span>
   </a>
-  <a href="#dakhle">
+  <a href="dakhle.html">
     <img src="https://cdn-icons-png.flaticon.com/512/2991/2991108.png">
     <span>दाखले</span>
   </a>
-  <a href="#padadhikari">
+  <a href="padadhikari.html">
     <img src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png">
     <span>पदाधिकारी</span>
   </a>
-  <a href="#takrar">
+  <a href="takrar.html">
     <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png">
     <span>तक्रार नोंदवा</span>
   </a>
@@ -776,7 +940,32 @@ document.querySelectorAll('.sidebar a').forEach(link=>{
   .bottom-nav{display:none;}
 }
 </style>
+<script>
+function checkAdminLogin(){
+  const input = document.getElementById("adminPassword").value;
+
+  // 🔒 ENCODED PASSWORD (Murlidhar89@1976 base64)
+  const encodedPass = "TXVybGlkaGhhcjg5QDE5NzY=";
+
+  // encode input and compare
+  const inputEncoded = btoa(input); // input base64 encode
+  if(inputEncoded === encodedPass){
+    closeAdminLogin();
+    // ✅ redirect to admin page (Google Form edit link)
+    window.location.href = "https://docs.google.com/forms/d/1tv3Lv91rlgiWf2gSkn60ruOqxXj7l_Tss5Oo2_fQfFs/edit#response=ACYDBNhTkMyCg4nYrT8fpv7fRO0DIIp91hN1iOYQFqzeix0rm_eKSt1tc9QCPb2ZCjr24vI";
+  } else{
+    document.getElementById("adminError").style.display="block";
+  }
+}
+</script>
+
+<script>
+  document.querySelectorAll(".choukshi-btn").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSfgZjVBFb7nykyzHZ_7qOrvj59_5K66IuqmU84YTPe9wIOcuA/viewform?usp=header";
+    });
+  });
+</script>
 </body>
 </html>
-
 
